@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+
+{% block app_content %}
+    <h1>
+        註冊帳戶
+    </h1>
+    <br>
+    <h2>
+        上傳頭像
+    </h2>
+    <br>
+    
+        <div class="row">
+            <div class="col-md-8">
+                {% import 'bootstrap/wtf.html' as wtf  %}
+                {{ wtf.quick_form(form) }}
+            </div>
+        </div>
+    
+{% endblock %}

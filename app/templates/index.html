@@ -1,0 +1,22 @@
+{% extends 'base.html' %} 
+
+{% block app_content %}
+
+  <div class="row">
+    <div class="col-lg-12">
+      <h3>你好嗎? 歡迎使用 CatoBot!</h3>
+      <br/>
+
+      <p>
+        CatoBot 是一個全自動加密巿場交易機器人, 本機器人透過接收
+        "TradingView策略" 所發出的交易信號 (包括: 交易所, 貨幣對, 下單幣數,
+        等資訊...) 為使用者自動在交易所下單。本機器人現時支持以下交易所。
+      </p>
+
+      {% for paragraph in data %}
+        <p>{{paragraph}}</p>
+      {% endfor %}
+
+    </div>
+  </div>
+{% endblock %}

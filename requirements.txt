@@ -1,0 +1,15 @@
+flask
+gunicorn
+python-binance
+flask-bootstrap
+flask-sqlalchemy
+flask-wtf
+wtforms
+email_validator
+flask-bcrypt
+flask-login
+PyJWT
+flask-mail
+flask-admin
+ccxt
+expiringdict

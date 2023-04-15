@@ -1,0 +1,44 @@
+{% extends 'base.html' %}
+{% block app_content %}
+    <div class="row">
+        <h1> 功能測試 </h1>
+        <br>
+        <div class="row">
+            <form method="post" action="/test">
+                <input type="submit" name="action" value="提取: Config (Robot)"/>
+                <input type="submit" name="action" value="提取: 所有交易所的 名字"/>
+                <input type="submit" name="action" value="提取: 指定交易所的 所有 貨幣對"/>
+                <input type="submit" name="action" value="提取: 你的交易所的 指定的交易對 的K線的 最新資料"/>
+                <input type="submit" name="action" value="提取: 你的交易所的 指定的貨幣交易對"/>
+                <input type="submit" name="action" value="提取: 你的交易所的 指定的交易對 的OrderBook"/>
+                <input type="submit" name="action" value="提取: 你的交易所的 Balance"/>
+                <input type="submit" name="action" value="建倉: 多"/>
+                <input type="submit" name="action" value="建倉: 空"/>
+                <input type="submit" name="action" value="獲取公共數據，包含合約面值等訊息"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="N/A"/>
+                <input type="submit" name="action" value="重建DB"/>
+                <input type="submit" name="action" value="萬能測試"/>
+                
+
+                
+            </form>
+        </div>
+    </div>
+    {% if output %}
+    <div class="col_md_12">
+        
+        <p>{{ output }}</p>
+        
+    </div>
+    {% endif %}
+
+
+{% endblock %}

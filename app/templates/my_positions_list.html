@@ -1,0 +1,87 @@
+<table class="table table-bordered table-striped table table-sm">
+    <div class="row flex-xl-nowrap">
+        <button type="button" class="btn btn-lg btn-block btn-primary {% if request.endpoint == 'account_info_mini' %}active{% endif %}">
+            <a href="{{ url_for('account_info_mini') }}" style="color:antiquewhite">基本資料</a>
+    </div>
+    <br>
+    <div>
+        <tr>
+            <th>下單時間</th>
+            <!--<th>持倉ID</th>-->
+            <th>交易對</th>
+            <th>方向</th>
+            <th>倉位類別</th>
+            <th>槓桿</th>
+
+            <th>合約張數</th>
+            <th>每合約幣數</th> 
+            <th>本訂單幣數</th> 
+            
+            <th>買時合約等值美金</th> 
+            <th>現時等值美金</th> 
+            <th>使用資金</th>
+            <th>使用資金 對 戶口本金 %</th>
+            
+            <th>當時成交均價</th>
+            <th>現時標記價格</th> 
+            <th>預計強平價</th>
+            <th>未實現盈虧</th>
+            <th>未實現盈虧 對 本單本金 %</th>
+            <th>未實現盈虧 對 戶口本金 %</th>
+
+            
+
+            <!--<th>抵押</th>-->
+            <th>維持保證金(美金)</th>
+            <!--<th>保證金餘額</th>-->
+
+            <!--<<th>開始時的保証金百分比</th>-->
+            <th>保証金率</th>
+            <th>maintenance Margin</th>
+            <th>maintenance Margin Percentage</th>
+
+            <th></th>
+            
+        </tr>
+    
+        {% for position in my_trades %}
+        <tr>
+            <th>{{ position.datetime_string }}</th>
+            <!--<th>{{ position.position_id }}</th>-->
+            <th>{{ position.symbol }}</th>
+            <th>{{ position.direction }}</th>
+            <th>{{ position.margin_mode }}</th>
+            <th>{{ position.leverage }}</th>
+
+            <th>{{ position.existing_position_side }}</th>
+            <th>{{ position.coin_number_per_contract }}</th> 
+            <th>{{ position.total_coins_purchased }}</th>
+
+            <th>{{ position.paid_usdt_r }}</th> 
+            <th>{{ position.position_usdt_amount_r }}</th>
+            <th>{{ position.margin_r }}</th>
+            <th>{{ position.used_fund_percentage }} %</th>
+
+            <th>{{ position.avg_price_r }}</th>
+            <th>{{ position.mark_price_r }}</th>
+            <th>{{ position.estimated_liquidation_price_r }}</th>
+            <th>{{ position.unrealized_profit_and_loss_r }}</th>
+            <th>{{ position.pnl_percentage }} %</th>
+            <th>{{ position.this_pos_to_acc_percentage }} %</th>
+
+            <!--<th>{{ position.collateral_r }}</th>-->
+            <th>{{ position.maintenance_margin_requirement_r }}</th>
+            <!--<th>{{ position.margin_r }}</th>-->
+
+            <!--<<th>{{ position.initial_margin_percentage_r }}</th>-->
+            <th>{{ position.margin_ratio_r }}</th>
+            <th>{{ position.maintenance_margin_r }}</th>
+            <th>{{ position.maintenance_margin_Percentage_r }} %</th>
+
+            <th><form method="post" action="/my_account"><input type="button" name="action" value= "1">平倉</button></form></th>
+        </tr>
+        {% endfor %}
+    </div>
+    
+    
+    </table>

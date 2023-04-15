@@ -1,0 +1,19 @@
+{% extends 'base.html' %}
+{% block app_content %}
+    <div class="row">
+        <h1> 更改用戶資料 </h1>
+        <br>
+        <div class="col-md-6">
+            {% import 'bootstrap/wtf.html' as wtf  %}
+            {{ wtf.quick_form(form) }}
+            <br>
+            {{ wtf.quick_form(form2) }}
+        </div>
+        <div>
+            {% include 'avatar_block.html' %}
+            
+        </div>
+    </div>
+    
+
+{% endblock %}

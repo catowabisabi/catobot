@@ -1,0 +1,21 @@
+{% extends 'base.html' %}
+
+{% block app_content %}
+  
+  <body>
+    <div class="col_md_6">
+
+      <h1>
+          你好嗎? {{ current_user.nickname}}! 以下是你的交易所的 APIs 資料.
+      </h1>
+
+      <p>
+          本機器人可以幫你使用以下的 APIs 連接到你交易所幫你下單做買賣。
+      </p>
+
+    <hr>
+    {% include 'api_list.html' %}
+
+  </div>
+  </body>
+{% endblock %}

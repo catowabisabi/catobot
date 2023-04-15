@@ -1,0 +1,32 @@
+
+
+<table class="table table-bordered">
+
+
+<div class="col_lg_7">
+    <tr>
+        <th>交易所</th>
+        <th>機器人ID</th>
+        <th>用戶</th>
+        <th>API 名稱</th>
+        <th>API KEY</th>
+        <th> </th>
+    
+
+        
+    </tr>
+
+    {% for api in APIs%}
+    <tr>
+        <th>{{ api.exchange }}</th>
+        <th>{{ api.robot_id }}</th>
+        <th>{{ api.user.nickname }}</th>
+        <th>{{ api.api_name }}</th>
+        <th>{{ api.api_key }}</th>
+        <th><form method="post" action="/robots"><input type="button" name="action" value= "1">刪除這個 API</button></form></th>
+    </tr>
+    {% endfor %}
+</div>
+
+
+</table>

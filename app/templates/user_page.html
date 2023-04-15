@@ -1,0 +1,58 @@
+{% extends 'base.html' %}
+{% block app_content %}
+<div class="row">
+  <div class="col-md-6">
+    <h1>個人資料</h1>
+
+    {% if current_user == user %}
+    <a href="{{ url_for('edit_profile') }}">修改個人資料</a>
+    {% else %}
+    {% if current_user.is_following(user) %}
+    <a href="{{ url_for('unfollow', username = user.username)}}">取消關注</a>
+    {% else %}
+    <a href="{{ url_for('follow', username = user.username)}}">關注</a>
+    {% endif %}
+
+    {% endif %}
+    <br>
+    <h3>{{ user.nickname}}</h3>
+    <p>{{ user.email }}</p>
+    <br>
+    <br>
+
+
+    <table class="table table-bordered">
+      <tr>
+        <td>
+          <p>API 編號</p>
+        </td>
+        <td>
+          <p>交易所</p>
+        </td>
+        <td>
+          <p>API 指示 (註: 用作指定機器人)</p>
+        </td>
+      </tr>
+      {% for API in user.APIs %}
+      <tr>
+        <td>
+          <p>{{ API.id }}</p>
+        </td>
+        <td>
+          <p>{{ API.exchange }}</p>
+        </td>
+        <td>
+          <p>{{ API.signal_passpharse }}</p>
+        </td>
+      </tr>
+      {% endfor %}
+    </table>
+
+    <br>
+    {% include 'post_content.html' %}
+  </div>
+
+  {% include 'avatar_block.html' %}
+
+</div>
+{% endblock %}
